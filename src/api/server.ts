@@ -45,7 +45,7 @@ export const user_calls = {
         })
 
         if (!response.ok) {
-            throw new Error('Failed to fetch user forcast')
+            throw new Error('Failed to fetch user forecast')
         }
 
         return response.json()
@@ -97,6 +97,55 @@ export const profile_calls = {
 
         if (!response.ok) {
             throw new Error('Failed to update profile data')
+        }
+
+        return response.json()
+    }
+}
+
+export const saved_calls = {
+    getInfo: async (data: string) => {
+        const response = await fetch(`${testURL}/saved/${data}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch saved location info')
+        }
+
+        return response.json()
+    },
+
+    create: async (data: any={}) => {
+        const response = await fetch(`${testURL}/saved/${data.num}/${data.id}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        if (!response.ok) {
+            throw new Error('Failed to create new saved location')
+        }
+
+        return response.json()
+    },
+
+    update: async (data: any={}) => {
+        const response = await fetch(`${testURL}/${data.num}/${data.id}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+
+        if (!response.ok) {
+            throw new Error('Failed to update saved location data')
         }
 
         return response.json()

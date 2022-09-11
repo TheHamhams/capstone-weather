@@ -18,7 +18,7 @@ export const useProfileGet = () => {
 
     useEffect( () => {
         handleDataFetch()
-    })
+    }, [])
 
     return {userProfile, getProfile:handleDataFetch}
 }

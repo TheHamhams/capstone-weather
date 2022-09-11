@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { UserLocationForm } from '../UserLocationForm'
 import { Container } from "react-bootstrap";
 import { useProfileGet } from "../../custom-hooks/FetchProfile";
+import { SavedLocationInfo } from "../SavedLocations/SavedLocationInfo";
 
 export const Profile = () => {
   const { user } = useAuth0();
@@ -29,15 +30,19 @@ export const Profile = () => {
       </Container>
 
       <Container className="text-center py-3 border">
-        <h1>Location informaiton</h1>
+        <h1>Location Information</h1>
+
         {!userProfile.city && 
-        <UserLocationForm update={false} />
+          <UserLocationForm update={false} />
         }
+
         {userProfile.city && 
-        <UserLocationForm update={true} />
+          <UserLocationForm update={true} />
         }
-        
+
       </Container>
+
+      <SavedLocationInfo />
     </div>
   );
 };

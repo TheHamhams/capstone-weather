@@ -12,7 +12,7 @@ export const useHomeGet = () => {
 
     useEffect( () => {
         handleDataFetch()
-    })
+    }, [])
 
     return {homeForecast, getHomeForecast:handleDataFetch}
 }
