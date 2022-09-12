@@ -1,14 +1,9 @@
-import { json } from "stream/consumers"
+// const baseMapQuestURL = 'http://www.mapquestapi.com/geocoding/v1/address?'
+// const mapQuestKey = process.env.REACT_APP_MAP_KEY
+// const baseWeatherGov = 'https://api.weather.gov/points'
+// const baseWeatherGovForcast = 'https://api.weather.gov/gridpoints/'
 
-const baseMapQuestURL = 'http://www.mapquestapi.com/geocoding/v1/address?'
-const mapQuestKey = process.env.REACT_APP_MAP_KEY
-const baseWeatherGov = 'https://api.weather.gov/points'
-const baseWeatherGovForcast = 'https://api.weather.gov/gridpoints/'
 const testURL = 'http://127.0.0.1:5000/api'
-const testLocation = {
-    "lat": 47.97913,
-	"lng": -122.195893
-}
 const testGrid = {
     "gridId": 'SEW',
     'gridX': 131,
@@ -119,6 +114,21 @@ export const saved_calls = {
         return response.json()
     },
 
+    getForecast: async(data: string) => {
+        const response = await fetch(`${testURL}/saved/forecast/${data}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch user forecast')
+        }
+
+        return response.json()
+    },
+
     create: async (data: any={}) => {
         const response = await fetch(`${testURL}/saved/${data.num}/${data.id}`, {
             method: 'POST',
@@ -136,7 +146,7 @@ export const saved_calls = {
     },
 
     update: async (data: any={}) => {
-        const response = await fetch(`${testURL}/${data.num}/${data.id}`, {
+        const response = await fetch(`${testURL}/saved/${data.num}/${data.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'

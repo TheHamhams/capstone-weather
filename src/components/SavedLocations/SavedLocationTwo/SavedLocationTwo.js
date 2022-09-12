@@ -11,7 +11,6 @@ export const SavedLocationTwo = () => {
     return null
   }
 
-  console.log(savedTwo)
   return (
     <Container className="text-center py-3 border">
         <h1>Saved Location Two Information</h1>

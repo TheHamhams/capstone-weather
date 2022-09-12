@@ -1,18 +1,16 @@
 import React from 'react'
 import { Button } from 'react-bootstrap'
 import { useForm } from 'react-hook-form'
-import { saved_calls, profile_calls } from '../../../api'
+import { saved_calls } from '../../../api'
 import { useAuth0 } from '@auth0/auth0-react'
 
 export const SavedLocationForm = (props) => {
   const { user } = useAuth0()
   const { register, handleSubmit } = useForm()
   
-
-  console.log(props.num)
-  console.log(props.update)
   
   const onSubmit = (data, event) => {
+
     if (!props.update) {  
         saved_calls.create({
             id: user.sub,
@@ -22,6 +20,7 @@ export const SavedLocationForm = (props) => {
             })
         setTimeout( () => {window.location.reload()}, 1000)
         }
+        
     if (props.update) {
         saved_calls.update({
             id: user.sub,
