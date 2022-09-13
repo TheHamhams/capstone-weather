@@ -5,12 +5,12 @@ import './index.css';
 import { Auth0ProviderWithHistory } from './auth0-provider-with-history'
 import { Home, NavBar, Profile, Dashboard } from './components'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { firebaseConfig } from './firebaseConfig';
 
 
 ReactDOM.render(
   <React.StrictMode>
     <Auth0ProviderWithHistory>
-    {/* <Provider store={store}> */}
       <Router>
       <Switch>
         
@@ -31,7 +31,6 @@ ReactDOM.render(
 
       </Switch>
       </Router>
-    {/* </Provider> */}
     </Auth0ProviderWithHistory>
   </React.StrictMode>,
   document.getElementById('root')
