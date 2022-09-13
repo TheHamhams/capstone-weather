@@ -18,7 +18,7 @@ export const Home = () => {
     <div style={{'backgroundImage': `url(${homeForecast.icon})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh'}}>
       <br/>
       <Container className='rounded py-3 border col-4 mb-5 container-bg'>
-      <h1>Weather to Go Out Today</h1>
+      <h1 className='text-center'>Weather to Go Out Today</h1>
       </Container>
       
       <Container className='rounded py-3 border col-4 mb-5 container-bg'>
