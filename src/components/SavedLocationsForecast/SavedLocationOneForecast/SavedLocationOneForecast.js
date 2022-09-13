@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image } from 'react-bootstrap'
+import { Container, Image } from 'react-bootstrap'
 import { useSavedOneForecastGet } from '../../../custom-hooks/FetchSavedOneForecast'
 import { useSavedOneGet } from '../../../custom-hooks/FetchSavedOne'
 
@@ -13,16 +13,14 @@ export const SavedLocationOneForecast = () => {
   }
 
   return (
-    <>
-      <div>
-        <h1>Forecast for Today</h1>
-        <p>Location: {savedOne.city}, {savedOne.state}</p>
+    <div className='py-3 col-4' style={{'backgroundImage': `url(${savedOneForecast.icon})`, backgroundSize: 'cover', backgroundPosition: 'center'}}>
+      <Container className='rounded py-3 border mb-5 container-bg'>
+        
+        <h2>Forecast for {savedOne.city}, {savedOne.state}</h2>
+        <h4>Current Temperature: {savedOneForecast.temperature} F &emsp; <Image src={savedOneForecast.icon} /></h4>
         {savedOneForecast.detailedForecast} 
-        <br/>
-        <Image src={savedOneForecast.icon} />
-        <p>Current Temperature: {savedOneForecast.temperature}</p>
-
-      </div>
-    </>
+        
+      </Container>
+    </div>
   )
 }

@@ -12,8 +12,8 @@ export const SavedLocationTwo = () => {
   }
 
   return (
-    <Container className="text-center py-3 border">
-        <h1>Saved Location Two Information</h1>
+    <Container className="text-center py-3 border container-bg col-3">
+        <h1>Saved Location Two</h1>
         
         {!savedTwo.city &&  
             <SavedLocationForm update={false} num='2'/>

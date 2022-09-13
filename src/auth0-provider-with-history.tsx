@@ -16,7 +16,11 @@ export const Auth0ProviderWithHistory = ({
   const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL;
 
   const onRedirectCallback = (appState?: AppState) => {
-    history.push(appState?.returnTo || window.location.pathname);
+    history.push(
+      appState && appState.returnTo
+      ? appState.returnTo
+      : window.location.pathname
+    );
   };
 
   if (!(domain && clientId)) {

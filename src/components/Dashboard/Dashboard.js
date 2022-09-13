@@ -4,7 +4,7 @@ import { Button, Image } from 'react-bootstrap'
 import { useAuth0 } from '@auth0/auth0-react'
 import { UserForecast } from '../UserForecast'
 import { SavedLocationOneForecast, SavedLocationTwoForecast, SavedLocationThreeForecast } from '../SavedLocationsForecast'
-
+import { Container, Row, Col } from 'react-bootstrap'
 
 export const Dashboard = () => {
   let { user, isLoading } = useAuth0()
@@ -18,14 +18,21 @@ export const Dashboard = () => {
   }
 
   return (
-    <>
-      <UserForecast />
+    <div>
+      <Container fluid>
+        <Row className='d-flex'>
+          <UserForecast />
+        </Row>
+      
+        <Row className='d-flex'>
+          <SavedLocationOneForecast />
 
-      <SavedLocationOneForecast />
+          <SavedLocationTwoForecast />
 
-      <SavedLocationTwoForecast />
+          <SavedLocationThreeForecast />
+        </Row>
 
-      <SavedLocationThreeForecast />
-    </>
+      </Container>
+    </div>
   )
 }

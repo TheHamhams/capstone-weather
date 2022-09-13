@@ -1,7 +1,4 @@
-// const baseMapQuestURL = 'http://www.mapquestapi.com/geocoding/v1/address?'
-// const mapQuestKey = process.env.REACT_APP_MAP_KEY
-// const baseWeatherGov = 'https://api.weather.gov/points'
-// const baseWeatherGovForcast = 'https://api.weather.gov/gridpoints/'
+const baseURL = 'https://hamren-weather-api.herokuapp.com/api'
 
 const testURL = 'http://127.0.0.1:5000/api'
 const testGrid = {
@@ -23,15 +20,15 @@ export const home_calls = {
             throw new Error('failed to fetch forcast')
         }
         let user = await response.json()
-        let forcast = await user.properties.periods[0]
-        return await forcast
+        let forecast = await user.properties.periods[0]
+        return await forecast
     }
 
 }
 
 export const user_calls = {
     get: async(id: string) => {
-        const response = await fetch(`${testURL}/user/forecast/${id}`, {
+        const response = await fetch(`${baseURL}/user/forecast/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +44,7 @@ export const user_calls = {
     },
 
     create: async (data: any={}) => {
-        const response = await fetch(`${testURL}/userlocal`, {
+        const response = await fetch(`${baseURL}/userlocal`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -65,7 +62,7 @@ export const user_calls = {
 
 export const profile_calls = {
     get: async(id: string) => {
-        const response = await fetch(`${testURL}/profile/${id}`, {
+        const response = await fetch(`${baseURL}/profile/${id}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -81,7 +78,7 @@ export const profile_calls = {
     },
 
     update: async(data: any={}) => {
-        const response = await fetch(`${testURL}/profile/${data.id}`, {
+        const response = await fetch(`${baseURL}/profile/${data.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -100,7 +97,7 @@ export const profile_calls = {
 
 export const saved_calls = {
     getInfo: async (data: string) => {
-        const response = await fetch(`${testURL}/saved/${data}`, {
+        const response = await fetch(`${baseURL}/saved/${data}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -115,7 +112,7 @@ export const saved_calls = {
     },
 
     getForecast: async(data: string) => {
-        const response = await fetch(`${testURL}/saved/forecast/${data}`, {
+        const response = await fetch(`${baseURL}/saved/forecast/${data}`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -146,7 +143,7 @@ export const saved_calls = {
     },
 
     update: async (data: any={}) => {
-        const response = await fetch(`${testURL}/saved/${data.num}/${data.id}`, {
+        const response = await fetch(`${baseURL}/saved/${data.num}/${data.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
