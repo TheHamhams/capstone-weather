@@ -13,9 +13,14 @@ code {
     monospace;
 }
 
+
 .container-bg {
   background-color: rgb(199, 199, 236);
   min-width: 80%;
+}
+
+@media only screen and (min-width: 600px) {
+  .container-bg {min-width: auto;}
 }
 
 body, html {
