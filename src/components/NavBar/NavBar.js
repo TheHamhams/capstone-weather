@@ -15,7 +15,7 @@ export const NavBar = () => {
   return (
     <Navbar bg='dark' variant='dark'>
     <Container>
-      <Navbar.Brand href='/'>Weather to Go Out Today</Navbar.Brand> 
+      <Navbar.Brand href='/'>WTGOT</Navbar.Brand> 
       <Nav className='ms-auto'>
         <Nav.Link href='/'>Home</Nav.Link>
 

@@ -10,18 +10,31 @@ export const Home = () => {
 
   if (!homeForecast) {
     return (
-      <div>Loading</div>
+      <>
+        <Container className='rounded py-3 border col-4 col-sm-10 mb-5 container-bg'>
+        <h1 className='text-center'>Weather to Go Out Today</h1>
+        </Container>
+        
+        <Container className='rounded py-3 border col-4 col-sm-10 mb-5 container-bg'>
+          <p>
+            Welcome! Our app allows you to keep track of today's forecast for your location as well as up to 3 custom locations. 
+          </p>
+          <p>
+            All you need to do is sign up, choose your locations, and visit your dashboard! Simple as that!
+          </p>
+        </Container>
+      </>
     )
   }
 
   return (
     <div style={{'backgroundImage': `url(${homeForecast.icon})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100vh'}}>
       <br/>
-      <Container className='rounded py-3 border col-4 mb-5 container-bg'>
+      <Container className='rounded py-3 border fluid col-4 mb-5 container-bg'>
       <h1 className='text-center'>Weather to Go Out Today</h1>
       </Container>
       
-      <Container className='rounded py-3 border col-4 mb-5 container-bg'>
+      <Container className='rounded py-3 border col-4 col-sm-10 mb-5 container-bg'>
         <p>
           Welcome! Our app allows you to keep track of today's forecast for your location as well as up to 3 custom locations. 
         </p>
@@ -29,7 +42,7 @@ export const Home = () => {
           All you need to do is sign up, choose your locations, and visit your dashboard! Simple as that!
         </p>
       </Container>
-
+      
       <Container className='container-bg rounded py-3 col-5 border' >
         <h2>Forecast for Today </h2>
         <h4><strong>Location:</strong> Everett, WA</h4>
