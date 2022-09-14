@@ -25,11 +25,15 @@ export const Dashboard = () => {
         </Row>
       
         <Row className='d-flex'>
+          <Col xs={12}>
           <SavedLocationOneForecast />
-
+          </Col>
+          <Col xs={12}>
           <SavedLocationTwoForecast />
-
+          </Col>
+          <Col xs={12}>
           <SavedLocationThreeForecast />
+          </Col>
         </Row>
 
       </Container>
