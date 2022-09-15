@@ -5,15 +5,15 @@ import { user_calls, profile_calls } from '../../api'
 import { useAuth0 } from '@auth0/auth0-react'
 import SelectUSState from 'react-select-us-states'
 
-export const UserLocationForm = (update) => {
+export const UserLocationForm = (props) => {
   const { user } = useAuth0()
   const { register, handleSubmit } = useForm()
   const [usState, setUsState ] = useState('')
   
-
   
   const onSubmit = (data, event) => {
-    if (!update) {  
+    if (props.update == false) {
+        console.log(data)  
         user_calls.create({
             id: user.sub,
             city: data.city,
@@ -21,7 +21,7 @@ export const UserLocationForm = (update) => {
             })
         setTimeout( () => {window.location.reload()}, 1000)
         }
-    if (update) {
+    if (props.update == true) {
         profile_calls.update({
             id: user.sub,
             city: data.city,

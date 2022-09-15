@@ -9,6 +9,7 @@ export const UserLocationInfo = () => {
   if (!userProfile) {
     return null
   }
+  
   return (
     <Container className="text-center py-3 border container-bg col-4 mb-3">
     <h1>User Location Information</h1>

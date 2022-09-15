@@ -127,7 +127,7 @@ export const saved_calls = {
     },
 
     create: async (data: any={}) => {
-        const response = await fetch(`${testURL}/saved/${data.num}/${data.id}`, {
+        const response = await fetch(`${baseURL}/saved/${data.num}/${data.id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
