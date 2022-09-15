@@ -21,8 +21,7 @@ export const SavedLocationThree = () => {
 
         {savedThree.city &&  
         <>
-            <p>City: {savedThree.city}</p>
-            <p>State: {savedThree.state}</p>
+            <h4>{savedThree.city}, {savedThree.state}</h4>
             <SavedLocationForm update={true} num='3'/>
         </>
         

@@ -9,7 +9,7 @@ const testGrid = {
 
 export const home_calls = {
     get: async () => {
-        const response = await fetch(`https://api.weather.gov/gridpoints/${testGrid.gridId}/${testGrid.gridX},${testGrid.gridY}/forecast`, {
+        const response = await fetch(`${baseURL}/`, {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json'
@@ -19,9 +19,8 @@ export const home_calls = {
         if (!response.ok) {
             throw new Error('failed to fetch forcast')
         }
-        let user = await response.json()
-        let forecast = await user.properties.periods[0]
-        return await forecast
+
+        return await response.json()
     }
 
 }
@@ -40,7 +39,7 @@ export const user_calls = {
             throw new Error('Failed to fetch user forecast')
         }
 
-        return response.json()
+        return await response.json()
     },
 
     create: async (data: any={}) => {
@@ -56,7 +55,7 @@ export const user_calls = {
             throw new Error('Failed to create new user data')
         }
 
-        return response.json()
+        return await response.json()
     }
 }
 
@@ -74,7 +73,7 @@ export const profile_calls = {
             throw new Error('Failed to fetch profile data')
         }
 
-        return response.json()
+        return await response.json()
     },
 
     update: async(data: any={}) => {
@@ -91,7 +90,7 @@ export const profile_calls = {
             throw new Error('Failed to update profile data')
         }
 
-        return response.json()
+        return await response.json()
     }
 }
 
@@ -108,7 +107,7 @@ export const saved_calls = {
             throw new Error('Failed to fetch saved location info')
         }
 
-        return response.json()
+        return await response.json()
     },
 
     getForecast: async(data: string) => {
@@ -123,7 +122,7 @@ export const saved_calls = {
             throw new Error('Failed to fetch user forecast')
         }
 
-        return response.json()
+        return await response.json()
     },
 
     create: async (data: any={}) => {
@@ -139,7 +138,7 @@ export const saved_calls = {
             throw new Error('Failed to create new saved location')
         }
 
-        return response.json()
+        return await response.json()
     },
 
     update: async (data: any={}) => {
@@ -155,6 +154,6 @@ export const saved_calls = {
             throw new Error('Failed to update saved location data')
         }
 
-        return response.json()
+        return await response.json()
     }
 }
